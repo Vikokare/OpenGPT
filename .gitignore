@@ -8,9 +8,6 @@ venv
 __pycache__/
 *.py[cod]
 
-# Jupyter Notebook
-.ipynb_checkpoints/
-
 # Logs and Temporary Files
 *.log
 *.tmp
@@ -36,3 +33,10 @@ pip-delete-this-directory.txt
 build/
 dist/
 *.egg-info/
+
+# Chainlit translation files
+translations/
+
+# Ignore any other local config files or data
+local_config.json
+
