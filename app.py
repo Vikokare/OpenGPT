@@ -9,54 +9,24 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_huggingface import HuggingFaceEmbeddings
 from sentence_transformers import SentenceTransformer
 
-from pinecone import Pinecone, ServerlessSpec
-from langchain_pinecone import PineconeVectorStore
-import pinecone
+from langchain_chroma import Chroma 
+from uuid import uuid4
 
 import os
 from dotenv import load_dotenv
 load_dotenv()
 
-PINECONE_API_KEY = os.environ.get("PINECONE_API_KEY")
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# if torch.cuda.is_available():
-#     device = torch.device("cuda")
-#     print("GPU is available")
-# else:
-#     device = torch.device("cpu")
-#     print("GPU is not available, using CPU")
+embedding_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", model_kwargs={'device': device})
 
-
-
-embedding_model_1 = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-
-pc = Pinecone(api_key=PINECONE_API_KEY)
-
-index_name = "book-sync"
-if index_name not in pc.list_indexes().names():
-    pc.create_index(
-        name=index_name,
-        dimension=384,
-        metric="cosine",
-        spec=ServerlessSpec(
-            cloud='aws',
-            region='us-east-1'
-        )
-    )
-    print("Created index...\n", pc.describe_index(index_name))
-else:
-    print("Index already exists")
-
-index = pc.Index(index_name)
-
-docsearch_instance = PineconeVectorStore(
-    pinecone_api_key=PINECONE_API_KEY,
-    embedding=embedding_model_1,
-    index=index,
+vector_store = Chroma(
+    collection_name="example-collection",
+    embedding_function=embedding,
+    persist_directory="./chroma_langchain_db",
 )
-
 
 def get_similar_doc(query, k=3, score=True):
     if score:
@@ -70,6 +40,7 @@ def get_similar_doc(query, k=3, score=True):
 users_db = {
     "vaibhav": {"password": "123", "role": "ADMIN"},
 }
+
 
 @cl.password_auth_callback
 def auth_callback(username: str, password: str) -> Optional[cl.User]:
@@ -105,6 +76,9 @@ async def set_starters():
 
 @cl.on_chat_start
 async def on_chat_start():
+    app_user = cl.user_session.get("user")
+    # await cl.Message(f"Hello {app_user.identifier}").send()
+
     settings = await cl.ChatSettings(
         [
             Select(
@@ -137,6 +111,7 @@ async def on_chat_start():
 @cl.on_settings_update
 async def settings_update(settings):
     print(settings)
+    print("settings Updated;;")
 
 
 @cl.on_message
@@ -159,13 +134,7 @@ async def on_message(message: cl.Message):
         loader = PyPDFLoader(files[0].path)
         pages = loader.load_and_split()
         
-        # Create instance -> embed doc and upsert
-        PineconeVectorStore.from_documents(
-            pinecone_api_key=PINECONE_API_KEY,
-            index_name=index_name,
-            embedding=embedding_model_1,
-            documents=pages,
-        )
+
 
         print("Uploading doc done!")
         return None
@@ -205,3 +174,10 @@ async def on_chat_end():
     await cl.Message(
         content="Thank You!"
     ).send()
+
+
+
+# Implement ChromaDB
+# Use User session and chat presistent
+# Seperate code logic
+# Use GPU for compuatation
