@@ -40,3 +40,8 @@ translations/
 # Ignore any other local config files or data
 local_config.json
 
+# hugging Face Model Cache
+models/
+
+# chroma local file storage
+chroma_langchain_db/
