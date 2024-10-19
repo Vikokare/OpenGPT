@@ -3,7 +3,7 @@ from chainlit.input_widget import Select, Switch, Slider
 
 import auth
 import document_handler
-import llm_manager
+from llm_manager import llm_response
 
 
 @cl.set_starters
@@ -64,7 +64,11 @@ async def on_message(message: cl.Message):
     # settings = await cl.get_settings()
     # model = settings["Model"]
     # temperature = settings["Streaming"]
-    ...
+    response = llm_response(message)
+    await cl.Message(
+        content=response.content
+    ).send()
+
 
 
 @cl.on_settings_update
