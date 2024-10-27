@@ -1,28 +1,34 @@
+import asyncio
 import chainlit as cl
-from chainlit.input_widget import Select, Switch, Slider
+from chainlit.input_widget import Select, Switch, Slider, TextInput
 
 import auth
 from llm_manager import llm_response
 
+settings = {
+    "Model": "llama3-8b-8192",
+    "Streaming": False,
+    "GROQ_API_KEY": None,
+}
 
 @cl.set_starters
 async def set_starters():
     return [
         cl.Starter(
-            label="Summarize Books",
-            message="Help me summarize a refrence book",
+            label="Exam preprations",
+            message="How to prepare for Exams?",
             icon="./public/scholar_icon.png",
         ),
 
         cl.Starter(
-            label="Data Scientist",
-            message="Research topic ___",
+            label="Brillance Mind Ratan Tata",
+            message="Give some inspiritional story about Sir Ratan Tata",
             icon="./public/idea_icon.png",
         ),
 
         cl.Starter(
-            label="Crawler",
-            message="Crawl for ___",
+            label="Dragons Tale",
+            message="Are dragons real?",
             icon="./public/icons8-flame-64.png",
         ),
     ]
@@ -41,9 +47,9 @@ async def on_chat_start():
                 id="Model",
                 label="Model",
                 values=[
-                    "mixtral-8x7b-32768", 
                     "llama3-8b-8192",
                     "llama3-70b-8192", 
+                    "mixtral-8x7b-32768", 
                 ],
                 initial_index=0,
             ),
@@ -51,26 +57,39 @@ async def on_chat_start():
                 id="Streaming", 
                 label="Streaming", 
                 initial=False
-            )
+            ),
+            TextInput(
+                id="GROQ_API_KEY", 
+                label="GROQ API KEY", 
+                initial=""
+            ),
         ]
     ).send()
 
-
 @cl.on_message
 async def on_message(message: cl.Message):
-    # settings = await cl.get_settings()
-    # model = settings["Model"]
-    # temperature = settings["Streaming"]
-    response = llm_response(message)
+
+    response = await llm_response(message.content, settings["Model"])
     
-    await cl.Message(
-        content=response
-    ).send()
+    # await cl.Message(
+    #     content=response
+    # ).send()
+
+    response = response.split(" ")
+    
+    msg = cl.Message(content="")
+    await msg.send()
+    for token in response:
+        await msg.stream_token(token + " ")
+        await asyncio.sleep(0.1) 
+    await msg.send()
 
 
 @cl.on_settings_update
-async def settings_update(settings):
-    print("settings Updated;;")
+async def on_settings_update(new_settings):
+    global settings
+    settings.update(new_settings)
+    print("settings Updated;")
 
 
 @cl.on_stop
