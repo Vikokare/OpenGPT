@@ -7,14 +7,13 @@ GOOGLE_CLIENT_SECRET = os.getenv("OAUTH_GOOGLE_CLIENT_SECRET")
 
 # Simulated user storage (replace with a database in a real application)
 users_db = {
-    "vaibhav": {"password": "222", "role": "ADMIN"},
-    "Nikita": {"password": "111", "role": "USER"}
+    "vaibhav": {"password": "0000", "role": "ADMIN"},
+    "Nikita": {"password": "1111", "role": "USER"}
 }
 
 
 @cl.password_auth_callback
 def auth_callback(username: str, password: str) -> Optional[cl.User]:
-    # print("USERNAME", username, "PASSWORD", password)
     user = users_db.get(username)
     if user and user["password"] == password:
         return cl.User(
