@@ -12,7 +12,7 @@ Hi there, User! 👋 We're thrilled to have you here! OpenGPT is your personal A
 
 ## Useful Links 🌟
 
-- **Documentation:** Dive into our [OpenGPT Documentation](#) for detailed setup and usage instructions. 📚
+- **Documentation:** Dive into our [OpenGPT Documentation](https://github.com/Vikokare/OpenGPT) for detailed setup and usage instructions. 📚
 - **Source Code:** Check out the [OpenGPT GitHub Repository](https://github.com/Vikokare) for the latest updates and code contributions! 🛠️
 - **Community:** Connect with me on [LinkedIn](https://www.linkedin.com/in/vaibhavkokare) to share your experiences and get support! 💬
 

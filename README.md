@@ -4,6 +4,7 @@ OpenGPT is an open-source project that aims to create a locally running GPT chat
 
 ## Table of Contents
 
+- [Problem Statement](#problem-statement)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
@@ -11,6 +12,14 @@ OpenGPT is an open-source project that aims to create a locally running GPT chat
 - [Project Structure](#project-structure)
 - [Contributing](#contributing)
 - [License](#license)
+
+## Problem Statement
+
+As reliance on AI chatbots grows, many existing platforms require cloud access and compromise user privacy. Moreover, they often lack up-to-date data. **OpenGPT** addresses these issues by offering:
+
+- A fully local GPT-based chatbot  
+- Real-time, customizable web scraping  
+- Privacy-preserving architecture  
 
 ## Features
 

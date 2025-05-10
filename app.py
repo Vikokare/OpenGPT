@@ -1,13 +1,13 @@
 import asyncio
 import chainlit as cl
-from chainlit.input_widget import Select, Switch, Slider, TextInput
+from chainlit.input_widget import Select, Switch, TextInput
 
 import auth
 from llm_manager import llm_response
 
 settings = {
     "Model": "llama3-8b-8192",
-    "Streaming": False,
+    "Streaming": True,
     "GROQ_API_KEY": None,
 }
 
@@ -40,7 +40,6 @@ async def on_chat_start():
     if not app_user:
         await cl.redirect("/auth")
 
-
     settings = await cl.ChatSettings(
         [
             Select(
@@ -56,7 +55,7 @@ async def on_chat_start():
             Switch(
                 id="Streaming", 
                 label="Streaming", 
-                initial=False
+                initial=True
             ),
             TextInput(
                 id="GROQ_API_KEY", 
@@ -70,10 +69,6 @@ async def on_chat_start():
 async def on_message(message: cl.Message):
 
     response = await llm_response(message.content, settings["Model"])
-    
-    # await cl.Message(
-    #     content=response
-    # ).send()
 
     response = response.split(" ")
     
