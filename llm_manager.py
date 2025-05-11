@@ -6,7 +6,7 @@ from langchain_core.prompts import ChatPromptTemplate, PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from langchain.chains.conversation.memory import ConversationBufferMemory
-from langchain.chains import ConversationChain
+from langchain.chains import ConversationChain, LLMChain
 from langchain.agents import AgentType, Tool, initialize_agent
 
 from tools import tools
@@ -74,3 +74,41 @@ async def llm_response(message, model):
 
     response = agent({"input": message, "chat_history": chat_history})
     return response["output"]
+
+async def get_starters_content(model):
+    llm = ChatGroq(
+        model=model,
+        temperature=0.7,
+    )
+
+    main_prompt = """
+    Please generate starter topics for a chatbot UI page in the following JSON format:
+    [
+        {
+            "label": "<Topic Label>",
+            "message": "<Question or Message>",
+        },
+        {
+            "label": "<Topic Label>",
+            "message": "<Question or Message>",
+        },
+        ...
+    ]
+    
+    Each topic should have:
+    - A clear and concise label describing the topic.
+    - A message that could serve as the chatbot's response to a user's inquiry about that topic.
+    
+    Examples of categories:
+    - Health (e.g., Fitness, Dieting Tips)
+    - Technology (e.g., Innovations, Programming Help)
+    - Motivation (e.g., Quotes, Inspiration)
+    - Personal Development (e.g., Career Advice, Goal Setting)
+    - Miscellaneous Fun (e.g., Space Exploration, Dragons, Mysteries)
+    """
+
+    prompt_template = PromptTemplate(input_variables=[], template=main_prompt)
+    llm_chain = LLMChain(prompt=prompt_template, llm=llm)
+
+    # Get starter topics response from Groq (simulating with OpenAI here for simplicity)
+    starters_response = llm_chain.run({})

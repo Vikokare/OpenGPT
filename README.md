@@ -7,13 +7,16 @@
 
 <p align="center">
   <a href="https://www.linkedin.com/in/vaibhavkokare/" rel="nofollow">
-    <img alt="LinkedIn" src="https://img.shields.io/badge/Connect%20%40vaibhavkokare-blue" style="max-width:100%;">
+    <img alt="LinkedIn" src="https://img.shields.io/badge/In Connect%20%40vaibhavkokare-blue" style="max-width:100%;">
+  </a>
+  <a href="https://github.com/Vikokare" rel="nofollow">
+    <img alt="Github" src="https://img.shields.io/badge/Github_Profile%20%40Vik-black" style="max-width:100%;">
   </a>
 <p>
 
 <p align="center">
-  <a href="readme-assets/main-page.png">
-    <img src="readme-assets/main-page.png" alt="Watch the video" style="max-width:100%;">
+  <a href="readme-assets/chatbot-head-ui.png">
+    <img src="readme-assets/chatbot-head-ui.png" alt="Watch the video" style="max-width:100%; border: 1px solid #ccc; border-radius: 10px;"">
   </a>
 </p>
 

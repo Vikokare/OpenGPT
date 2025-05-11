@@ -13,26 +13,62 @@ settings = {
 
 @cl.set_starters
 async def set_starters():
+    
     return [
         cl.Starter(
-            label="Exam preprations",
-            message="How to prepare for Exams?",
-            icon="./public/scholar_icon.png",
+            label="Healthy Eating Tips",
+            message="What are some tips for maintaining a healthy diet?",
+            icon="https://cdn-icons-png.flaticon.com/512/2906/2906476.png",
         ),
-
         cl.Starter(
-            label="Brillance Mind Ratan Tata",
-            message="Give some inspiritional story about Sir Ratan Tata",
-            icon="./public/idea_icon.png",
+            label="Travel Destinations",
+            message="Can you suggest some amazing travel destinations?",
+            icon="https://cdn-icons-png.flaticon.com/512/854/854894.png",
         ),
-
         cl.Starter(
-            label="Dragons Tale",
-            message="Are dragons real?",
-            icon="./public/icons8-flame-64.png",
+            label="Space Exploration",
+            message="Tell me about the latest discoveries in space exploration.",
+            icon="https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
         ),
+        cl.Starter(
+            label="Personal Finance Advice",
+            message="How can I manage my finances better?",
+            icon="https://cdn-icons-png.flaticon.com/512/888/888879.png",
+        ),
+        cl.Starter(
+            label="Tech Innovations",
+            message="What are the latest tech innovations?",
+            icon="https://cdn-icons-png.flaticon.com/512/888/888879.png",
+        ),
+        cl.Starter(
+            label="Motivational Quotes",
+            message="Share some motivational quotes to boost my mood.",
+            icon="https://cdn-icons-png.flaticon.com/512/888/888879.png",
+        ),
+        cl.Starter(
+            label="Fitness Workouts",
+            message="What are some effective fitness workouts?",
+            icon="https://cdn-icons-png.flaticon.com/512/888/888879.png",
+        ),
+        cl.Starter(
+            label="Mental Health Tips",
+            message="How can I improve my mental health?",
+            icon="https://cdn-icons-png.flaticon.com/512/888/888879.png",
+        ),
+        cl.Starter(
+            label="Career Advice",
+            message="How do I advance in my career?",
+            icon="https://cdn-icons-png.flaticon.com/512/888/888879.png",
+        ),
+        cl.Starter(
+            label="Art & Creativity",
+            message="Can you give me tips to enhance my creativity?",
+            icon="https://cdn-icons-png.flaticon.com/512/888/888879.png",
+        ),      
     ]
 
+
+# https://cdn-icons-png.flaticon.com/512/888/888879.png
 
 @cl.on_chat_start
 async def on_chat_start():
