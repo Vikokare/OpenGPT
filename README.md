@@ -1,7 +1,7 @@
-<h1 align="center">🤖 OpenGPT</h1>
+<h1 align="center">🤖 OpenGPT Framwork </h1>
 
 <p align="center">
-   <b>An open-source, privacy-first GPT chatbot with real-time web scraping — running locally ⚡️</b>
+   <b>An open-source, privacy-first GPT chatbot framework with real-time web scraping & local deployment ⚡️</b>
 </p>
 
 
@@ -10,7 +10,7 @@
     <img alt="LinkedIn" src="https://img.shields.io/badge/In Connect%20%40vaibhavkokare-blue" style="max-width:100%;">
   </a>
   <a href="https://github.com/Vikokare" rel="nofollow">
-    <img alt="Github" src="https://img.shields.io/badge/Github_Profile%20%40Vik-black" style="max-width:100%;">
+    <img alt="Github" src="https://img.shields.io/badge/Github_Profile%20%40Vikokare-black" style="max-width:100%;">
   </a>
 <p>
 
@@ -36,16 +36,15 @@
 
 As reliance on AI chatbots grows, many existing platforms require cloud access and compromise user privacy. Moreover, they often lack up-to-date data. **OpenGPT** addresses these issues by offering:
 
-- A fully local GPT-based chatbot  
+- A fully local GPT-based chatbot framwork
 - Real-time, customizable web scraping  
 - Privacy-preserving architecture  
 
 ## Features
 
 - **Real-Time Web Scraping**: Fetches the latest data from specified websites to ensure up-to-date responses.
-- **Local LLM**: Runs the GPT model locally for enhanced privacy.
+- **Local LLM**: Connects with GPT model locally for enhanced privacy.
 - **User Authentication**: Supports Google OAuth for secure user login.
-- **Multi-Language Support**: Allows querying in multiple languages.
 - **Query History**: Maintains a history of user queries for easy access.
 - **Feedback Mechanism**: Enables users to provide feedback on chatbot responses to improve accuracy.
 
