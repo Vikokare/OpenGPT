@@ -84,7 +84,9 @@ async def on_message(message: cl.Message):
 async def on_settings_update(new_settings):
     global settings
     settings.update(new_settings)
-    print("settings Updated;")
+    if settings["GROQ_API_KEY"]:
+        cl.user_session.set("GROQ_API_KEY", settings["GROQ_API_KEY"])
+    # print("Settings Updated", settings)
 
 
 @cl.on_stop
@@ -100,3 +102,8 @@ async def on_chat_end():
     await cl.Message(
         content="Thank You!"
     ).send()
+
+
+if __name__ == "__main__":
+    from chainlit.cli import run_chainlit
+    run_chainlit(__file__)

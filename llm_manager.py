@@ -1,4 +1,5 @@
 import os
+import chainlit as cl
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate, PromptTemplate
@@ -11,6 +12,7 @@ from langchain.agents import AgentType, Tool, initialize_agent
 from tools import tools
 load_dotenv()
 
+# cl.user_session.get("GROQ_API_KEY")
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
 
 

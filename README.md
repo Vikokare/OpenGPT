@@ -1,6 +1,22 @@
-# OpenGPT
+<h1 align="center">🤖 OpenGPT</h1>
 
-OpenGPT is an open-source project that aims to create a locally running GPT chatbot. It utilizes web scraping to provide real-time answers to user queries while prioritizing user privacy by allowing the model to run on local machines.
+<p align="center">
+   <b>An open-source, privacy-first GPT chatbot with real-time web scraping — running locally ⚡️</b>
+</p>
+
+
+<p align="center">
+  <a href="https://www.linkedin.com/in/vaibhavkokare/" rel="nofollow">
+    <img alt="LinkedIn" src="https://img.shields.io/badge/Connect%20%40vaibhavkokare-blue" style="max-width:100%;">
+  </a>
+<p>
+
+<p align="center">
+  <a href="readme-assets/main-page.png">
+    <img src="readme-assets/main-page.png" alt="Watch the video" style="max-width:100%;">
+  </a>
+</p>
+
 
 ## Table of Contents
 
