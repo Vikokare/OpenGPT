@@ -94,17 +94,62 @@ Before installing, ensure you have:
 ## Project Structure
 
 ```
-OpenGPT/
-├── app.py                # Main Chainlit application file
-├── requirements.txt      # List of required Python packages
-├── scraper/              # Directory for web scraping modules
-│   ├── __init__.py
-│   └── scraper.py
-├── models/               # Directory for language models
-│   ├── __init__.py
-│   └── gpt_model.py
-└── static/               # Static files (CSS, images, etc.)
-```
+D:\ProjectsDevlop\OpenGPT
+│
+├── backend/
+│   ├── public/
+│   │   └── avatars/
+│   ├── .env
+│   ├── app.py
+│   ├── auth.py
+│   ├── chainlit.md
+│   ├── document_handler.py
+│   ├── manager.py
+│   ├── prompts.py
+│   ├── template.py
+│   ├── tools.py
+│   └── README.md  # (Optional: add backend-specific documentation)
+│
+├── frontend/
+│   ├── public/
+│   │   └── favicon.svg
+│   ├── src/
+│   │   ├── api/  # For API-related logic
+│   │   ├── assets/  # Static assets for frontend (images, logos)
+│   │   ├── components/
+│   │   │   ├── chat/  # Chat-related components
+│   │   │   ├── ui/  # UI components
+│   │   │   ├── elements/  # For custom elements (like audio, video, text)
+│   │   │   ├── settings/  # Chat settings and forms
+│   │   │   ├── header/  # Header components
+│   │   │   └── sidebar/  # Sidebar-related components
+│   │   ├── contexts/  # State management contexts
+│   │   ├── hooks/  # Custom React hooks
+│   │   ├── lib/  # Utility functions
+│   │   ├── pages/  # Page components (like Home, Chat, etc.)
+│   │   ├── state/  # For app-level state management
+│   │   ├── types/  # TypeScript types
+│   │   ├── App.tsx
+│   │   ├── AppWrapper.tsx
+│   │   ├── index.css
+│   │   ├── router.tsx
+│   │   ├── vite-env.d.ts
+│   │   └── vite.config.ts
+│   └── package.json  # Frontend dependencies
+│
+├── .chainlit/
+│   ├── translations/  # Translation files (JSON)
+│   └── config.toml  # Chainlit configuration
+│
+├── docs/
+│   ├── README.md  # Project documentation
+│   └── assets/  # Readme assets, illustrations, etc.
+│
+├── .gitignore
+├── LICENSE
+├── requirements.txt  # Backend dependencies
+└── task  # (Optional: move task-related files here)
+
 
 ## Contributing
 
