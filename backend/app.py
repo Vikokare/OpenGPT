@@ -5,7 +5,6 @@ from chainlit.input_widget import Select, Switch, TextInput
 from manager import LLMService
 import auth
 
-
 class SettingsManager:
     def __init__(self):
         self.settings = {
@@ -26,9 +25,9 @@ class SettingsManager:
         return self.settings
 
 
-class LLMService:
+class LLMCalls:
     async def generate(self, prompt, model):
-        return await llm_response(prompt, model)
+        return await LLMService.generate(prompt, model)
 
     async def stream_response(self, text: str):
         tokens = text.split(" ")

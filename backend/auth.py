@@ -59,12 +59,7 @@ def auth_callback(username: str, password: str) -> Optional[cl.User]:
 
 
 @cl.oauth_callback
-def oauth_callback(
-    provider_id: str,
-    token: str,
-    raw_user_data: Dict[str, str],
-    default_user: cl.User
-) -> Optional[cl.User]:
+def oauth_callback(provider_id: str, token: str, raw_user_data: Dict[str, str], default_user: cl.User) -> Optional[cl.User]:
     if provider_id == "google":
         return auth_service.handle_oauth(provider_id, raw_user_data)
     return default_user
