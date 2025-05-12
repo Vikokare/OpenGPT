@@ -1,0 +1,47 @@
+-------- In Progress
+Crawling
+
+-------- Completed
+Implement ChromaDB
+Use GPU for compuatation
+Added settings
+Seperate code logic
+OAuth Google Signin
+Chat History
+chat presistent
+Wikipedia Tool
+Agent mapping
+
+-------- Features
+User session 
+Database local
+CheckOut CrewAI
+let user delete chat
+QA on Documents
+Custom user llm API key
+Crawl latest trending searches and put then in starters
+Chain of Thought
+Tags displaying resource
+Local LLM Endpoint and API
+Dynamically collect starter querys
+
+
+
+Please generate starter topics for a chatbot UI page in this format:
+cl.Starter(
+    label="<Topic Label>",
+    message="<Question or Message>",
+    icon="<URL of the Icon Image>",
+),
+
+Make sure to provide topics from a variety of categories (e.g., health, travel, tech, motivation, etc.). Each topic should have:
+A clear and concise label describing the topic.
+A message that could serve as the chatbot's response to a user's inquiry about that topic.
+An icon URL that is visually appropriate for the topic. eg: https://cdn-icons-png.flaticon.com/512/888/888879.png
+
+Examples of categories:
+Health (e.g., Fitness, Dieting Tips)
+Technology (e.g., Innovations, Programming Help)
+Motivation (e.g., Quotes, Inspiration)
+Personal Development (e.g., Career Advice, Goal Setting)
+Miscellaneous Fun (e.g., Space Exploration, Dragons, Mysteries)

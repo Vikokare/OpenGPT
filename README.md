@@ -4,7 +4,6 @@
    <b>An open-source, privacy-first GPT chatbot framework with real-time web scraping & local deployment ⚡️</b>
 </p>
 
-
 <p align="center">
   <a href="https://www.linkedin.com/in/vaibhavkokare/" rel="nofollow">
     <img alt="LinkedIn" src="https://img.shields.io/badge/In Connect%20%40vaibhavkokare-blue" style="max-width:100%;">
