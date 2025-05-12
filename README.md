@@ -54,7 +54,6 @@ As reliance on AI chatbots grows, many existing platforms require cloud access a
 - **Chainlit**: Tool for creating interactive web applications for the chatbot.
 - **GroqAPI**: Manages data queries efficiently.
 - **Playwright**: Framework for web scraping.
-- **FireCrawl**: Enhances web scraping capabilities.
 
 ## Installation
 
