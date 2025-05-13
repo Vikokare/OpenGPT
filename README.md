@@ -107,8 +107,7 @@ D:\ProjectsDevlop\OpenGPT
 │   ├── manager.py
 │   ├── prompts.py
 │   ├── template.py
-│   ├── tools.py
-│   └── README.md  # (Optional: add backend-specific documentation)
+│   └── tools.py
 │
 ├── frontend/
 │   ├── public/
@@ -147,9 +146,8 @@ D:\ProjectsDevlop\OpenGPT
 │
 ├── .gitignore
 ├── LICENSE
-├── requirements.txt  # Backend dependencies
-└── task  # (Optional: move task-related files here)
-
+└── requirements.txt  # Backend dependencies
+```
 
 ## Contributing
 
